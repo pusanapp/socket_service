@@ -1,5 +1,6 @@
-var express = require('express');
-var router = express.Router();
+const express = require('express');
+const {sendPaidOrderNotif} = require("../controller/transaction_controller");
+const router = express.Router();
 
 /* GET home page. */
 router.get('/', function(req, res, next) {
@@ -14,4 +15,5 @@ router.get('/socket', (req,res)=>{
   })
 })
 
+router.post('/paid-order', sendPaidOrderNotif)
 module.exports = router;
